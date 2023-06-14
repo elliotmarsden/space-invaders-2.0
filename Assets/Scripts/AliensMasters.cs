@@ -9,34 +9,33 @@ public class AliensMasters : MonoBehaviour {
     private Vector3 HMoveDis = new Vector3(0.05f, 0, 0);
     private Vector3 VMoveDis = new Vector3(0, 0.05f, 0);
 
-    private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f;
+    private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 3f, ShootTime = 3f;
 
     public static List<GameObject> allAliens = new List<GameObject>();
 
     private bool MovingRight;
 
-    void Start()
-    {
+    void Start() {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Alien"))
             allAliens.Add(go);
     }
 
-    void Update()
-    {
+    void Update() {
         if (MoveTimer <= 0)
             MoveAliens();
 
+        if (ShootTimer <= 0)
+            Shoot();
+
         MoveTimer -= Time.deltaTime;
+        ShootTime -= Time.deltaTime;
     }
 
-    private void MoveAliens()
-    {
-        if (allAliens.Count > 0)
-        {
+    private void MoveAliens() {
+        if (allAliens.Count > 0) {
             int HitMax = 0;
 
-            for (int i = 0; i < allAliens.Count; i++)
-            {
+            for (int i = 0; i < allAliens.Count; i++) {
                 if (MovingRight)
                     allAliens[i].transform.position += HMoveDis;
                 else
@@ -45,9 +44,7 @@ public class AliensMasters : MonoBehaviour {
                 if (allAliens[i].transform.position.x > MaxRight || allAliens[i].transform.position.x < MaxLeft)
                     HitMax++;
             }
-
-            if(HitMax > 0)
-            {
+            if(HitMax > 0) {
                 for (int i = 0; i < allAliens.Count; i++)
                     allAliens[i].transform.position -= VMoveDis;
 
@@ -59,8 +56,7 @@ public class AliensMasters : MonoBehaviour {
         }
     }
 
-    private float GetMoveSpeed()
-    {
+    private float GetMoveSpeed() {
         float f = allAliens.Count * MoveTime;
 
         if (f < MaxMoveSpeed)
@@ -69,4 +65,9 @@ public class AliensMasters : MonoBehaviour {
             return f;
     }
 
+    private void Shoot() {
+        Vector2 pos = allAliens[Random.Range(0, allAliens.Count)].transform.position;
+        Instantiate(BulletPrefab, pos, Quaternion.identity);
+        ShootTimer = ShootTime;
+    }
 }

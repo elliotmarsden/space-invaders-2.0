@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
     public GameObject BulletPrefab;
 
-    public float MaxLeft = -8.5f, MaxRight = 8.5f, Speed = 3, CoolDown = 0.5f;
+    public float MaxLeft = -8.5f, MaxRight = 8.5f, Speed = 3, CoolDown = 1f;
 
     private bool isShooting;
 

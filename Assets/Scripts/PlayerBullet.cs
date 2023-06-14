@@ -5,19 +5,12 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour {
 
     private float Speed = 10f;
-   
-    void Start()
-    {
-        
-    }
 
-   
     void Update() {
         transform.Translate(Vector2.up * Time.deltaTime * Speed);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private void OnCollisionEnter2D(Collision2D collision) {
         
     }
 }

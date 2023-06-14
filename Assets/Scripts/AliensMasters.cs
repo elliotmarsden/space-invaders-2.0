@@ -7,9 +7,9 @@ public class AliensMasters : MonoBehaviour {
     public GameObject BulletPrefab;
 
     private Vector3 HMoveDis = new Vector3(0.05f, 0, 0);
-    private Vector3 VMoveDis = new Vector3(0, 0.05f, 0);
+    private Vector3 VMoveDis = new Vector3(0, 0.25f, 0);
 
-    private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 3f, ShootTime = 3f;
+    private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 2f, ShootTime = 2f;
 
     public static List<GameObject> allAliens = new List<GameObject>();
 
@@ -28,7 +28,7 @@ public class AliensMasters : MonoBehaviour {
             Shoot();
 
         MoveTimer -= Time.deltaTime;
-        ShootTime -= Time.deltaTime;
+        ShootTimer -= Time.deltaTime;
     }
 
     private void MoveAliens() {

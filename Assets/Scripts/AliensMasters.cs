@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class AliensMasters : MonoBehaviour {
 
-    public GameObject BulletPrefab;
+    public GameObject BulletPrefab, MotherShipPreFab;
 
-    private Vector3 HMoveDis = new Vector3(0.05f, 0, 0);
-    private Vector3 VMoveDis = new Vector3(0, 0.25f, 0);
+    private Vector3 HMoveDis = new Vector3(0.05f, 0, 0), VMoveDis = new Vector3(0, 0.25f, 0), MotherShipSpawnPoint = new Vector3(12f, 2f, 0);
 
-    private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 2f, ShootTime = 2f;
+    private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 2f, ShootTime = 2f, MotherShipTimer = 60f, MotherShipMinTime = 2f, MotherShipMaxTimer = 10f;
 
     public static List<GameObject> allAliens = new List<GameObject>();
 
@@ -26,9 +25,12 @@ public class AliensMasters : MonoBehaviour {
 
         if (ShootTimer <= 0)
             Shoot();
+        if (MotherShipTimer <= 0)
+            SpawnMotherShip();
 
         MoveTimer -= Time.deltaTime;
         ShootTimer -= Time.deltaTime;
+        MotherShipTimer -= Time.deltaTime;
     }
 
     private void MoveAliens() {
@@ -69,5 +71,10 @@ public class AliensMasters : MonoBehaviour {
         Vector2 pos = allAliens[Random.Range(0, allAliens.Count)].transform.position;
         Instantiate(BulletPrefab, pos, Quaternion.identity);
         ShootTimer = ShootTime;
+    }
+
+    private void SpawnMotherShip() {
+        Instantiate(MotherShipPreFab, MotherShipSpawnPoint, Quaternion.identity);
+        MotherShipTimer = Random.Range(MotherShipMinTime, MotherShipMaxTimer);
     }
 }

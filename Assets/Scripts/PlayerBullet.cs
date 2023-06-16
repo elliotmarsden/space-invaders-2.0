@@ -11,6 +11,16 @@ public class PlayerBullet : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        
+        if(collision.gameObject.CompareTag(""))
+        {
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.CompareTag(""))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
+    
+    
 }

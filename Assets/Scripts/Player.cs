@@ -4,27 +4,66 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public PlayerStats PlayerStats;
     public GameObject BulletPrefab;
+    private Vector2 OffScreenPos = new Vector2(0, -20f);
+    private Vector2 StartPos = new Vector2(0, -3.5f);
 
-    public float MaxLeft = -8.5f, MaxRight = 8.5f, Speed = 3, CoolDown = 1f;
+    public float MaxLeft = -8.5f, MaxRight = 8.5f;
 
     private bool isShooting;
 
+    private void Start() {
+        PlayerStats.CurrentHealth = PlayerStats.MaxHealth;
+        PlayerStats.currentLives = PlayerStats.MaxLives;
+
+        transform.position = StartPos;
+    }
+
     void Update() {
         if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)) && transform.position.x > MaxLeft)
-            transform.Translate(Vector2.left * Time.deltaTime * Speed);
+            transform.Translate(Vector2.left * Time.deltaTime * PlayerStats.PlayerSpeed);
 
         if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow))&& transform.position.x < MaxRight)
-            transform.Translate(Vector2.right * Time.deltaTime * Speed);
+            transform.Translate(Vector2.right * Time.deltaTime * PlayerStats.PlayerSpeed);
 
         if (Input.GetKey(KeyCode.Space) && !isShooting)
             StartCoroutine(Shoot());
     }
 
+    private void TakeDamage() {
+        PlayerStats.CurrentHealth--;
+        if (PlayerStats.CurrentHealth <= 0) {
+            PlayerStats.currentLives--;
+
+            if(PlayerStats.currentLives <= 0){
+                Debug.Log("GAME OVER");
+            }
+            else {
+                StartCoroutine(Respawn());
+            }
+        }
+    }
+
     private IEnumerator Shoot() {
         isShooting = true;
         Instantiate(BulletPrefab, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(CoolDown);
+        yield return new WaitForSeconds(PlayerStats.FireRate);
         isShooting = false;
+    }
+
+    private IEnumerator Respawn() {
+        transform.position = OffScreenPos; 
+        yield return new WaitForSeconds(2);
+        PlayerStats.CurrentHealth = PlayerStats.MaxHealth;
+        transform.position = StartPos;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("AliensBullet")) {
+            TakeDamage();
+            Debug.Log("Player Hit");
+            Destroy(collision.gameObject);
+        }
     }
 }

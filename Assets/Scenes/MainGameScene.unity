@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7724232468603959106, guid: 1bdd12af19181f24f95ff0a875bdc967, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7724232468603959106, guid: 1bdd12af19181f24f95ff0a875bdc967, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1577,11 +1577,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c1b90545a18e441ba22c81104505c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerStats:
+    MaxHealth: 3
+    CurrentHealth: 0
+    MaxLives: 3
+    currentLives: 3
+    PlayerSpeed: 4
+    FireRate: 0.4
   BulletPrefab: {fileID: 1470431581497193477, guid: 3230a96af6954464c9db456515e13e88, type: 3}
   MaxLeft: -8.5
   MaxRight: 8.5
-  Speed: 3
-  CoolDown: 0.5
 --- !u!4 &747101771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8944830093902555525, guid: f150aa7698ab3d74d86bd33b404bef63, type: 3}

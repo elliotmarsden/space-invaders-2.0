@@ -8,16 +8,14 @@ public class MotherShip : MonoBehaviour {
     private float MaxLeft = -12f, Speed = 5f;
 
 
-    void Update()
-    {
+    void Update() {
         transform.Translate(Vector2.left * Time.deltaTime * Speed);
 
         if (transform.position.x <= MaxLeft)
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    private void OnCollisionEnter2D(Collision2D collision) {
         
     }
 }

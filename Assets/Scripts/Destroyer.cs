@@ -8,7 +8,7 @@ public class Destroyer : MonoBehaviour {
         if(collision.gameObject.tag == "Bullet") {
             Destroy(collision.gameObject);
         }
-        if(collision.gameObject.tag == "AliensBullet"){
+        if(collision.gameObject.tag == "AliensBullet") {
             Destroy(collision.gameObject);
         }
     }

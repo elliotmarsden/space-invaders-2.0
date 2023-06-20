@@ -9,7 +9,7 @@ public class AliensMasters : MonoBehaviour {
     private Vector3 HMoveDis = new Vector3(0.05f, 0, 0), VMoveDis = new Vector3(0, 0.25f, 0), MotherShipSpawnPoint = new Vector3(12f, 3.75f, 0);
 
     private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 2f, ShootTime = 2f;
-    private float MotherShipTimer = 50f, MotherShipMinTime = 25f, MotherShipMaxTimer = 50f;
+    private float MotherShipTimer = 30f, MotherShipMinTime = 15f, MotherShipMaxTimer = 30f;
 
     public static List<GameObject> allAliens = new List<GameObject>();
 

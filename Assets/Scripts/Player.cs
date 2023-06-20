@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     public PlayerStats PlayerStats;
     public GameObject BulletPrefab;
     private Vector2 OffScreenPos = new Vector2(0, -20f);
-    private Vector2 StartPos = new Vector2(0, -3.5f);
+    private Vector2 StartPos = new Vector2(0, -4f);
 
     public float MaxLeft = -8.5f, MaxRight = 8.5f;
 
@@ -32,14 +32,15 @@ public class Player : MonoBehaviour {
     }
 
     private void TakeDamage() {
-        PlayerStats.CurrentHealth--;
+        PlayerStats.CurrentHealth --;
         if (PlayerStats.CurrentHealth <= 0) {
-            PlayerStats.currentLives--;
+            PlayerStats.currentLives --;
 
             if(PlayerStats.currentLives <= 0){
                 Debug.Log("GAME OVER");
             }
             else {
+                Debug.Log("RESPAWN");
                 StartCoroutine(Respawn());
             }
         }
@@ -61,8 +62,8 @@ public class Player : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("AliensBullet")) {
-            TakeDamage();
             Debug.Log("Player Hit");
+            TakeDamage();
             Destroy(collision.gameObject);
         }
     }

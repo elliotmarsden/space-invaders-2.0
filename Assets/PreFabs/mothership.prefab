@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4306759679130607106}
   m_Layer: 0
   m_Name: mothership
-  m_TagString: Untagged
+  m_TagString: Alien
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,5 +136,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d03283086244c429a0de0a1bf423b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreVaule: 0
+  ScoreVaule: 500
   Explosion: {fileID: 5776776664874724958, guid: f0ecbbb366f13aa41bb1357a720fd105, type: 3}

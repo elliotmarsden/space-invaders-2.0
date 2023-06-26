@@ -7,9 +7,8 @@ public class Player : MonoBehaviour {
     public PlayerStats PlayerStats;
     public GameObject BulletPrefab;
     private Vector2 OffScreenPos = new Vector2(0, -20f);
-    private Vector2 StartPos = new Vector2(0, -4f);
-
-    public float MaxLeft = -8.5f, MaxRight = 8.5f;
+    private Vector2 StartPos = new Vector2(0, -3.33f);
+    private float MaxLeft = -8f, MaxRight = 8f;
 
     private bool isShooting;
 

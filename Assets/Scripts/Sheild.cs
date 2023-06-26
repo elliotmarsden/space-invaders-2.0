@@ -9,7 +9,7 @@ public class Sheild : MonoBehaviour {
     private SpriteRenderer sr;
 
     void Start() {
-        Health = 4;
+        Health = 3;
         sr = GetComponent<SpriteRenderer>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,7 +19,7 @@ public class Sheild : MonoBehaviour {
             Destroy(collision.gameObject);
             Health--;
 
-            if (Health < -0)
+            if (Health < 1)
                 Destroy(gameObject);
             else
                 sr.sprite = states[Health - 1];

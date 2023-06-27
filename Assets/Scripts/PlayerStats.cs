@@ -9,9 +9,9 @@ public class PlayerStats {
     [HideInInspector]
     public int CurrentHealth;
     [HideInInspector]
-    public int MaxLives = 3;
+    public int MaxLives = 5;
     [HideInInspector]
-    public int currentLives = 3;
+    public int currentLives = 5;
 
     public float PlayerSpeed;
     public float FireRate;

@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
         PlayerStats.currentLives = PlayerStats.MaxLives;
 
         transform.position = StartPos;
+
+        UIManager.UpdataLives(PlayerStats.currentLives);
     }
 
     void Update() {
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour {
         PlayerStats.CurrentHealth --;
         if (PlayerStats.CurrentHealth <= 0) {
             PlayerStats.currentLives --;
+            UIManager.UpdataLives(PlayerStats.currentLives);
 
             if(PlayerStats.currentLives <= 0){
                 Debug.Log("GAME OVER");

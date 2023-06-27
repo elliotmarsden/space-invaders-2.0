@@ -9,11 +9,12 @@ public class AliensMasters : MonoBehaviour {
     private Vector3 HMoveDis = new Vector3(0.05f, 0, 0), VMoveDis = new Vector3(0, 0.25f, 0), MotherShipSpawnPoint = new Vector3(12f, 3.75f, 0);
 
     private float MaxLeft = -8.2f, MaxRight = 8.2f, MoveTimer = 0.01f, MoveTime = 0.002f, MaxMoveSpeed = 0.02f, ShootTimer = 2f, ShootTime = 2f;
-    private float MotherShipTimer = 30f, MotherShipMinTime = 15f, MotherShipMaxTimer = 30f;
+    private float MotherShipTimer = 30f, MotherShipMinTime = 15f, MotherShipMaxTimer = 30f, StartY = 1.5f;
 
     public static List<GameObject> allAliens = new List<GameObject>();
 
     private bool MovingRight;
+    private bool Entering = true;
 
     void Start() {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Alien"))
@@ -21,17 +22,28 @@ public class AliensMasters : MonoBehaviour {
     }
 
     void Update() {
-        if (MoveTimer <= 0)
-            MoveAliens();
+        if (Entering)
+        {
+            transform.Translate(Vector2.down * Time.deltaTime * 10);
 
-        if (ShootTimer <= 0)
-            Shoot();
-        if (MotherShipTimer <= 0)
-            SpawnMotherShip();
+            if (transform.position.y <= StartY)
+                Entering = false;
+        }
+        else
+        {
+            if (MoveTimer <= 0)
+                    MoveAliens();
 
-        MoveTimer -= Time.deltaTime;
-        ShootTimer -= Time.deltaTime;
-        MotherShipTimer -= Time.deltaTime;
+            if (ShootTimer <= 0)
+                    Shoot();
+            if (MotherShipTimer <= 0)
+                    SpawnMotherShip();
+
+            MoveTimer -= Time.deltaTime;
+            ShootTimer -= Time.deltaTime;
+            MotherShipTimer -= Time.deltaTime;
+        }
+       
     }
 
     private void MoveAliens() {

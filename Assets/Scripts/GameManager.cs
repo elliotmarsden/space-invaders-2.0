@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
    }
 
+    private void Start()
+    {
+        SpawnNextWave();
+    }
+
    public static void SpawnNextWave()
    {
     instance.StartCoroutine(instance.SpawnWave());

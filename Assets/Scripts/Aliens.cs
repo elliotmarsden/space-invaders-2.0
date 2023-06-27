@@ -10,6 +10,8 @@ public class Aliens : MonoBehaviour {
         UIManager.UpdataScore(ScoreVaule);
         AliensMasters.allAliens.Remove(gameObject);
         Instantiate(Explosion, transform.position, Quaternion.identity);
+        if (AliensMasters.allAliens.Count == 0)
+            GameManager.SpawnNextWave();
         Destroy(gameObject);
     }
 }

@@ -16,10 +16,16 @@ public class PlayerBullet : MonoBehaviour {
             collision.gameObject.GetComponent<Aliens>().Kill();
             Destroy(gameObject);
         }
-        if(collision.gameObject.CompareTag("AliensBullet"))
+
+        int chance = Random.Range(0, 100);
+        if (chance >= 75)
         {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
+            if(collision.gameObject.CompareTag("AliensBullet"))
+            {
+                    Destroy(gameObject);
+                    Destroy(collision.gameObject);
+            }
         }
+    
     }
 }

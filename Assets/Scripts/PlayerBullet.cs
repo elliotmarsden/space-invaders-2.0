@@ -18,7 +18,7 @@ public class PlayerBullet : MonoBehaviour {
         }
 
         int chance = Random.Range(0, 100);
-        if (chance >= 75)
+        if (chance >= 50)
         {
             if(collision.gameObject.CompareTag("AliensBullet"))
             {

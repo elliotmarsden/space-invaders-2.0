@@ -15,11 +15,20 @@ public class UIManager : MonoBehaviour {
     private Color32 active = new Color(1, 1, 1, 1);
     private Color32 inactive = new Color(1, 1, 1, 0.25f);
 
+    public Text timer;
+    float timerTime = 8f;
+
     private void Awake() {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        timerTime -= Time.deltaTime;
+        timer.text = ((int)timerTime).ToString();
     }
 
     public static void UpdataLives(int l) {
@@ -36,7 +45,7 @@ public class UIManager : MonoBehaviour {
         instance.ScoreText.text = instance.Score.ToString("000,000");
     }
 
-    public static void UpdataHighScore() {
+    public void UpdataHighScore() {
 
     }
 
@@ -45,7 +54,7 @@ public class UIManager : MonoBehaviour {
         instance.WaveText.text = instance.Wave.ToString();
     }
 
-    public static void UpdataCoins() {
+    public void UpdataCoins() {
 
     }
 }

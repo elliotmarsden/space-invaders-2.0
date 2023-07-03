@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
     if (CurrentSet != null)
     Destroy(CurrentSet);
 
-    yield return new WaitForSeconds(3.9f);
+    yield return new WaitForSeconds(8f);
 
     CurrentSet = Instantiate(AllAlienSets[Random.Range(0, AllAlienSets.Length)], SpawnPos, Quaternion.identity);
     UIManager.UpdataWave();

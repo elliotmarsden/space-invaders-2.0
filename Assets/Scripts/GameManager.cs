@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
    public GameObject[] AllAlienSets;
    private GameObject CurrentSet;
    private Vector2 SpawnPos = new Vector2(0, 10);
    private static GameManager instance;
+   public Text timer;
+   float TimerTick = 8f;
 
-   private void Awake() {
+    private void Awake() {
         if (instance == null)
             instance = this;
         else 
@@ -29,7 +33,10 @@ public class GameManager : MonoBehaviour {
 
     yield return new WaitForSeconds(8f);
 
-    CurrentSet = Instantiate(AllAlienSets[Random.Range(0, AllAlienSets.Length)], SpawnPos, Quaternion.identity);
+    // timer -= Time.deltaTime;
+    // timer.text = ((int)TimerTick).ToString();
+
+        CurrentSet = Instantiate(AllAlienSets[Random.Range(0, AllAlienSets.Length)], SpawnPos, Quaternion.identity);
     UIManager.UpdataWave();
    }
 }

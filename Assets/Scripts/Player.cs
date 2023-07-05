@@ -48,6 +48,18 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void AddLives() {
+        if (PlayerStats.currentLives == PlayerStats.MaxLives)
+        {
+            UIManager.UpdataScore(1000);
+        }
+        else
+        {
+            PlayerStats.currentLives++;
+            UIManager.UpdataLives(PlayerStats.currentLives);
+        }
+    }
+
     private IEnumerator Shoot() {
         isShooting = true;
         Instantiate(BulletPrefab, transform.position, Quaternion.identity);

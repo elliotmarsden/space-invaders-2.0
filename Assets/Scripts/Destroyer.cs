@@ -11,5 +11,11 @@ public class Destroyer : MonoBehaviour {
         if(collision.gameObject.tag == "AliensBullet") {
             Destroy(collision.gameObject);
         }
+        if(collision.gameObject.tag == "Coins") {
+            Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.tag == "CoinsLives") {
+            Destroy(collision.gameObject);  
+        }
     }
 }

@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour {
         instance.WaveText.text = instance.Wave.ToString();
     }
 
-    public void UpdataCoins() {
-
+    public  static void UpdataCoins() {
+        instance.CoinText.text = inventory.currentCoins.ToString();
     }
 }

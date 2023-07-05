@@ -143,4 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreVaule: 200
+  LivesChance: 50
+  CoinChance: 100
   Explosion: {fileID: 5776776664874724958, guid: f0ecbbb366f13aa41bb1357a720fd105, type: 3}
+  CoinPrefab: {fileID: 5899212178809577886, guid: a25b799dbeb762f4fa9c5d522c5fd74b, type: 3}
+  LivesPrefab: {fileID: 6285357687182935339, guid: 6e839ba6055ba4e4ab83c38a7f0831e2, type: 3}

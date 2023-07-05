@@ -738,6 +738,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: playership
       objectReference: {fileID: 0}
+    - target: {fileID: 2217528914423559852, guid: 1bdd12af19181f24f95ff0a875bdc967, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382388031432040521, guid: 1bdd12af19181f24f95ff0a875bdc967, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7724232468603959106, guid: 1bdd12af19181f24f95ff0a875bdc967, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1983,6 +1991,7 @@ MonoBehaviour:
   - {fileID: 5067218385958720311, guid: 92b3dc68ed1f84f4294cee3b60af8a6b, type: 3}
   - {fileID: 5078552146486925605, guid: 8ee1459bf93111449b8dc8c56d926d2f, type: 3}
   - {fileID: 6992372097902417014, guid: ad9540370cb5493429d2e64bcbb08aea, type: 3}
+  timer: {fileID: 0}
 --- !u!4 &1589137429
 Transform:
   m_ObjectHideFlags: 0
@@ -2800,7 +2809,6 @@ MonoBehaviour:
   - {fileID: 1352287557}
   - {fileID: 59372284}
   - {fileID: 1878204140}
-  timer: {fileID: 1396663785}
 --- !u!1 &2129361897
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - Alien
   - AliensBullet
+  - CoinsLives
+  - Coins
   layers:
   - Default
   - TransparentFX

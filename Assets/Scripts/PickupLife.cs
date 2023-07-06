@@ -6,7 +6,7 @@ public class PickupLife : PickUp {
 
     public override void PickMeUp()
     {
-        GameObject.FindGameObjectWithTag("player").GetComponent<Player>().AddLives();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().AddLives();
         Destroy(gameObject);
         
     }

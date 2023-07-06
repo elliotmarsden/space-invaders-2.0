@@ -42,7 +42,6 @@ public class Player : MonoBehaviour {
                 Debug.Log("GAME OVER");
             }
             else {
-                Debug.Log("RESPAWN");
                 StartCoroutine(Respawn());
             }
         }
